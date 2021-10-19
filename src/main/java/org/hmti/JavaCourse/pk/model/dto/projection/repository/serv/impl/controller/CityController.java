@@ -1,6 +1,7 @@
 package org.hmti.JavaCourse.pk.model.dto.projection.repository.serv.impl.controller;
 
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import java.util.List;
 import org.hmti.JavaCourse.pk.CityPK;
 import org.hmti.JavaCourse.pk.model.City;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -32,6 +34,16 @@ public class CityController {
     public City findById(int cityPK) {
         return cityServiceImpl.findById(cityPK);
         
+    }
+    
+    @GetMapping("/name")
+    @ApiOperation(httpMethod = "GET", response = List.class,
+            value = "this url to get city by name")
+    public List<City> findByCityName(
+            @RequestParam(required = true)
+            @ApiParam(defaultValue = "city", required = true,
+             value = "city name will be search") String cityName) {
+        return cityServiceImpl.findCityByName(cityName);
     }
 
     @PostMapping

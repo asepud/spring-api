@@ -29,6 +29,8 @@ public class VillageController {
     }
 
     @GetMapping("/id")
+    @ApiOperation(httpMethod = "GET", response = List.class,
+            value = "this url to get village by id")
     public Village findById(int villagePK) {
         return villageServiceImpl.findById(villagePK);
     }
@@ -37,8 +39,8 @@ public class VillageController {
     @ApiOperation(httpMethod = "GET", response = Village.class,
             value = "this url to get village by name")
     public List<Village> findByVillageName(@RequestParam(required = true)
-            @ApiParam(defaultValue = "Kampung...", required = true,
-                    value = "village to search") String villageName) {
+            @ApiParam(defaultValue = "village name", required = true,
+                    value = "village will be search") String villageName) {
         return villageServiceImpl.findByVillageName(villageName);
     }
 
