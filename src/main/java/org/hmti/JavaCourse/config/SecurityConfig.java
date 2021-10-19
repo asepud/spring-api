@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         List<UserDetails> userDetailsList = new ArrayList<>();
         userDetailsList.add(User.builder().username("Asdin")
-                .password(passwordEncoder.encode("password"))
+                .password(passwordEncoder.encode("123"))
                 .authorities(new SimpleGrantedAuthority("Presiden"))
                 .build());
         return new InMemoryUserDetailsManager(userDetailsList);

@@ -57,7 +57,7 @@ public class SpringFoxConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "TMS REST API",
-                "Application programming interface for Java Course.",
+                "Application programming interface for Spring.",
                 "1.0",
                 " ",
                 new Contact("PT. XYZ", " ",
