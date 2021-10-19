@@ -1,6 +1,5 @@
 package org.hmti.JavaCourse.pk.model.dto.projection.repository.serv.impl;
 
-import java.net.HttpURLConnection;
 import java.util.List;
 import org.hmti.JavaCourse.pk.VillagePK;
 import org.hmti.JavaCourse.pk.model.Village;
@@ -22,18 +21,16 @@ public class VillageServiceImpl {
         return villageRepo.findAll();
     }
     
-    public Village findById(VillagePK villagePK) {
-        return villageRepo.findById(villagePK).get();
+    public Village findById(int villagePK) {
+        VillagePK vpk = new VillagePK(villagePK);
+        return villageRepo.findById(vpk).get();
     }
     
     public List<Village> findByVillageName(String villageName) {
         return villageRepo.findByVillageName(villageName);
     }
     
-    public void saveOrUpdate(Village village) {
-        villageRepo.save(village);
-    }
-    
+   
     public void save(Village village) {
         if (villageRepo.findById(village.getVillagePK()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "id already exist");

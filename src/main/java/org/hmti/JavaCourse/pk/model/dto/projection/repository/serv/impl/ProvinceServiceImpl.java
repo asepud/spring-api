@@ -17,9 +17,6 @@ public class ProvinceServiceImpl {
     @Autowired
     private ProvinceRepo provinceRepo;
 
-    public void saveOrUpdate(Province province) {
-        provinceRepo.save(province);
-    }
 
     public void save(Province province) {
         if (provinceRepo.findById(province.getProvincePK()).isPresent()) {
@@ -43,8 +40,9 @@ public class ProvinceServiceImpl {
         return provinceRepo.findAll();
     }
 
-    public Province findByID(ProvincePK provincePK) {
-        return provinceRepo.findById(provincePK).get();
+    public Province findByID(int provincePK) {
+        ProvincePK ppk = new ProvincePK(provincePK);
+        return provinceRepo.findById(ppk).get();
     }
 
     public List<Province> findProvinceByName(String provinceName) {

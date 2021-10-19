@@ -5,7 +5,6 @@ import io.swagger.annotations.ApiParam;
 import java.util.List;
 import org.hmti.JavaCourse.pk.DistrictPK;
 import org.hmti.JavaCourse.pk.model.District;
-import org.hmti.JavaCourse.pk.model.dto.DistrictDto;
 import org.hmti.JavaCourse.pk.model.dto.projection.repository.serv.impl.DistrictServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -51,10 +50,10 @@ public class DistrictController {
         districtServiceImpl.save(district);
     }
 
-    @PostMapping("/dto")
-    public void save(@RequestBody DistrictDto districtDto) {
-        districtServiceImpl.save(districtDto);
-    }
+//    @PostMapping("/dto")
+//    public void save(@RequestBody DistrictDto districtDto) {
+//        districtServiceImpl.save(districtDto);
+//    }
 
     @PutMapping
     public void update(@RequestBody District district) {

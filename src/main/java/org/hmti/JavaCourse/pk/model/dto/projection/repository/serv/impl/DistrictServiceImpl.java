@@ -30,9 +30,6 @@ public class DistrictServiceImpl {
         return districtRepo.findByDistrictName(districtName);
     }
 
-    public void saveOrUpdate(District district) {
-        districtRepo.save(district);
-    }
 
     public void save(District district) {
         if (districtRepo.findById(district.getDistrictPK()).isPresent()) {

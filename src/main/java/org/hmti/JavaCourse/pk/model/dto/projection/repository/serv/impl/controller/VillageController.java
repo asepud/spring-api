@@ -29,7 +29,7 @@ public class VillageController {
     }
 
     @GetMapping("/id")
-    public Village findById(VillagePK villagePK) {
+    public Village findById(int villagePK) {
         return villageServiceImpl.findById(villagePK);
     }
 

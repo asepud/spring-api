@@ -28,6 +28,13 @@ public class ProvinceController {
         return provinceServiceImpl.findAll();
     }
     
+    @GetMapping("/id")
+    @ApiOperation(httpMethod = "GET", response = List.class,
+            value = "this url to get province by id")
+    public Province findById(int provincePk) {
+      return provinceServiceImpl.findByID(provincePk);
+    }
+    
     @GetMapping("/name")
     @ApiOperation(httpMethod = "GET", response = List.class, 
             value = "this url to get province by name")

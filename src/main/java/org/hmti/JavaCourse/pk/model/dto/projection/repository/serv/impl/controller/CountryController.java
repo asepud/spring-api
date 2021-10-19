@@ -32,7 +32,13 @@ public class CountryController {
     public void save(@RequestBody Country country) {
         countryServiceImpl.save(country);
     }
-
+    @GetMapping("/id")
+    @ApiOperation(httpMethod = "GET", response = List.class,
+            value = "this url to get city by id")
+    public Country findById(int cityPK) {
+        return countryServiceImpl.findByID(cityPK);
+        
+    }
     @GetMapping("/name")
     @ApiOperation(httpMethod = "GET", response = List.class,
             value = "Ini url untuk mendapatkan daftar negara berdasarkan namanya")

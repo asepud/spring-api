@@ -39,15 +39,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager() {
         List<UserDetails> userDetailsList = new ArrayList<>();
-        userDetailsList.add(User.builder().username("Jokowi")
-                .password(passwordEncoder.encode("nganu"))
+        userDetailsList.add(User.builder().username("Asdin")
+                .password(passwordEncoder.encode("password"))
                 .authorities(new SimpleGrantedAuthority("Presiden"))
                 .build());
-        userDetailsList.add(User.builder().username("wiro")
-                .password(passwordEncoder.encode("212"))
-                .authorities(new SimpleGrantedAuthority("Presiden"))
-                .build());
-
         return new InMemoryUserDetailsManager(userDetailsList);
     }
 

@@ -17,9 +17,6 @@ public class CountryServiceImpl {
     @Autowired
     private CountryRepo countryRepo;
 
-    public void saveOrUpdate(Country country) {
-        countryRepo.save(country);
-    }
 
     public void save(Country country) {
         if (countryRepo.findById(country.getPk()).isPresent()) {
@@ -43,8 +40,9 @@ public class CountryServiceImpl {
         return countryRepo.findAll();
     }
 
-    public Country findByID(CountryPK countryPK) {
-        return countryRepo.findById(countryPK).get();
+    public Country findByID(int countryPK) {
+        CountryPK pK = new CountryPK(countryPK);
+        return countryRepo.findById(pK).get();
     }
     
     public List<Country> findByCountryName(String countryName){

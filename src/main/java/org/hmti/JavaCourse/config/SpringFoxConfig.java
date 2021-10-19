@@ -59,11 +59,11 @@ public class SpringFoxConfig {
                 "TMS REST API",
                 "Application programming interface for Java Course.",
                 "1.0",
-                "http://www.tabs.co.id/",
-                new Contact("PT. Tabs Solutions", "http://www.tabs.co.id/",
-                        "sales@tabs.co.id"),
+                " ",
+                new Contact("PT. XYZ", " ",
+                        "asepud28@gmail.com"),
                 "License of API",
-                "http://www.tabs.co.id/",
+                "PT. XYZ",
                 Collections.emptyList());
     }
 }
